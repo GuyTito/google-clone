@@ -35,7 +35,7 @@ const menu = ['All', 'Images', 'Videos', 'News']
 <template>
   <!-- <div class="min-h-screen  "> -->
     <div class=" mx-5 sm:mx-14 relative min-h-screen md:max-w-3xl md:mx-auto">
-      <form @submit.prevent="search" class="bg-white rounded-lg p-4 flex items-center space-x-2 text-gray-400 w-full absolute transition-all duration-700 top-1/2 -translate-y-1/2" :class="{'top-5 translate-y-0': move_top}">
+      <form @submit.prevent="search" class="border-2 border-gray-300 rounded-lg p-4 flex items-center space-x-2 text-gray-400 w-full absolute transition-all duration-700 top-1/2 -translate-y-1/2" :class="{'top-5 translate-y-0': move_top}">
         <SearchIcon class="h-5 w-5" />
         <input type="text" v-model="search_term" @keydown="move_top = true" placeholder="Search anything..." class="w-full placeholder-gray-400 text-black outline-none">
         <button type="submit" class=""></button>
@@ -44,12 +44,13 @@ const menu = ['All', 'Images', 'Videos', 'News']
       <!-- <div v-if="data" class="mt-5 text-black sm:max-w-xl">
         {{ data }}
       </div> -->
-      <div  class="opacity-0 transition-opacity delay-700 absolute top-20 mt-5 text-black w-full" :class="{'opacity-100' : move_top}">
+      <div  class="opacity-0 transition-all transform scale-0 duration-300 delay-500 absolute top-20 mt-5 text-black w-full" :class="{'opacity-100 scale-100' : move_top}">
         <div v-if="move_top">
-          <nav class="space-x-5 sm:space-x-10 flex sm:block justify-between mb-5 sm:mb-8 border-b-2 ">
-            <a v-for="item in menu" :key="item" href="#" class="border-b-4 border-green-500 py-2 px-4 inline-block">
+          <nav class="space-x-5 sm:space-x-10 flex sm:block justify-between mb-5 sm:mb-8 border-b-2 text-gray-400">
+            <a v-for="item in menu" :key="item" href="#" class="border-b-4 border-transparent py-2 px-4 inline-block hover:font-medium hover:text-black hover:border-black">
               {{ item }}
             </a>
+            <!-- apply hover properties when you install vue-router -->
           </nav>
 
           <div >
