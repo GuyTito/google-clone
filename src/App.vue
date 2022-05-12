@@ -26,6 +26,8 @@ async function search() {
   }
 }
 
+const menu = ['All', 'Images', 'Videos', 'News']
+
 
 </script>
 
@@ -44,37 +46,45 @@ async function search() {
       </div> -->
       <div  class="opacity-0 transition-opacity delay-700 absolute top-20 mt-5 text-black w-full" :class="{'opacity-100' : move_top}">
         <div v-if="move_top">
-          Day definition and meaning | Collins English Dictionaryhttps://www.collinsdictionary.com › dictionary › day
-          1. the interval of light between two successive nights; the time between sunrise and sunset · 2. the light of day; daylight · 3. Astronomy · 4. an analogous ...
-          20 Mar 2018 · Uploaded by Collins A-Z
+          <nav class="space-x-5 sm:space-x-10 flex sm:block justify-between mb-5 sm:mb-8 border-b-2 ">
+            <a v-for="item in menu" :key="item" href="#" class="border-b-4 border-green-500 py-2 px-4 inline-block">
+              {{ item }}
+            </a>
+          </nav>
 
-          DAY (noun) definition and synonyms | Macmillan Dictionaryhttps://www.macmillandictionary.com › british › day
-          1. countable one of the periods of time that a week is divided into, equal to 24 hours. We're going away for five days. · 2. countable/uncountable the period of ...
-
-          Day Definition & Meaning | Dictionary.comhttps://www.dictionary.com › browse › day
-          Day definition, the interval of light between two successive nights; the time between sunrise and sunset: Since there was no artificial illumination, ...
-
-          Day Definition & Meaning | Britannica Dictionaryhttps://www.britannica.com › dictionary › day
-          DAY meaning: 1 : a period of 24 hours beginning at midnight one of the seven time periods that make up a week; 2 : the time of light between one night and ...
-
-          National Day Calendar: Homehttps://nationaldaycalendar.com
-          On May 25th each year, wine lovers everywhere pour a glass of their favorite wine to celebrate National Wine Day. Advertisement. National Day Podcast. Hear the ...
-          
-          Day definition and meaning | Collins English Dictionaryhttps://www.collinsdictionary.com › dictionary › day
-          1. the interval of light between two successive nights; the time between sunrise and sunset · 2. the light of day; daylight · 3. Astronomy · 4. an analogous ...
-          20 Mar 2018 · Uploaded by Collins A-Z
-
-          DAY (noun) definition and synonyms | Macmillan Dictionaryhttps://www.macmillandictionary.com › british › day
-          1. countable one of the periods of time that a week is divided into, equal to 24 hours. We're going away for five days. · 2. countable/uncountable the period of ...
-
-          Day Definition & Meaning | Dictionary.comhttps://www.dictionary.com › browse › day
-          Day definition, the interval of light between two successive nights; the time between sunrise and sunset: Since there was no artificial illumination, ...
-
-          Day Definition & Meaning | Britannica Dictionaryhttps://www.britannica.com › dictionary › day
-          DAY meaning: 1 : a period of 24 hours beginning at midnight one of the seven time periods that make up a week; 2 : the time of light between one night and ...
-
-          National Day Calendar: Homehttps://nationaldaycalendar.com
-          On May 25th each year, wine lovers everywhere pour a glass of their favorite wine to celebrate National Wine Day. Advertisement. National Day Podcast. Hear the ...
+          <div >
+            Day definition and meaning | Collins English Dictionaryhttps://www.collinsdictionary.com › dictionary › day
+            1. the interval of light between two successive nights; the time between sunrise and sunset · 2. the light of day; daylight · 3. Astronomy · 4. an analogous ...
+            20 Mar 2018 · Uploaded by Collins A-Z
+  
+            DAY (noun) definition and synonyms | Macmillan Dictionaryhttps://www.macmillandictionary.com › british › day
+            1. countable one of the periods of time that a week is divided into, equal to 24 hours. We're going away for five days. · 2. countable/uncountable the period of ...
+  
+            Day Definition & Meaning | Dictionary.comhttps://www.dictionary.com › browse › day
+            Day definition, the interval of light between two successive nights; the time between sunrise and sunset: Since there was no artificial illumination, ...
+  
+            Day Definition & Meaning | Britannica Dictionaryhttps://www.britannica.com › dictionary › day
+            DAY meaning: 1 : a period of 24 hours beginning at midnight one of the seven time periods that make up a week; 2 : the time of light between one night and ...
+  
+            National Day Calendar: Homehttps://nationaldaycalendar.com
+            On May 25th each year, wine lovers everywhere pour a glass of their favorite wine to celebrate National Wine Day. Advertisement. National Day Podcast. Hear the ...
+            
+            Day definition and meaning | Collins English Dictionaryhttps://www.collinsdictionary.com › dictionary › day
+            1. the interval of light between two successive nights; the time between sunrise and sunset · 2. the light of day; daylight · 3. Astronomy · 4. an analogous ...
+            20 Mar 2018 · Uploaded by Collins A-Z
+  
+            DAY (noun) definition and synonyms | Macmillan Dictionaryhttps://www.macmillandictionary.com › british › day
+            1. countable one of the periods of time that a week is divided into, equal to 24 hours. We're going away for five days. · 2. countable/uncountable the period of ...
+  
+            Day Definition & Meaning | Dictionary.comhttps://www.dictionary.com › browse › day
+            Day definition, the interval of light between two successive nights; the time between sunrise and sunset: Since there was no artificial illumination, ...
+  
+            Day Definition & Meaning | Britannica Dictionaryhttps://www.britannica.com › dictionary › day
+            DAY meaning: 1 : a period of 24 hours beginning at midnight one of the seven time periods that make up a week; 2 : the time of light between one night and ...
+  
+            National Day Calendar: Homehttps://nationaldaycalendar.com
+            On May 25th each year, wine lovers everywhere pour a glass of their favorite wine to celebrate National Wine Day. Advertisement. National Day Podcast. Hear the ...
+          </div>
         </div>
         
       </div>
