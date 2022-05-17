@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 import { SearchIcon } from '@heroicons/vue/outline'
 import data from '@/composables/data.js'
+import { useDark, useToggle } from '@vueuse/core'
+
 
 const move_top = ref(false)
 const search_term = ref('')
@@ -30,6 +32,10 @@ async function search() {
 const menu = ['All', 'Images', 'Videos', 'News']
 
 
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+
+
 </script>
 
 
@@ -41,6 +47,10 @@ const menu = ['All', 'Images', 'Videos', 'News']
         <input type="text" v-model="search_term" @keydown="move_top = true" placeholder="Search anything..." class="w-full placeholder-gray-400 text-black outline-none">
         <button type="submit" class=""></button>
       </form>
+
+      <button @click="toggleDark()">
+        <span class="ml-2">{{ isDark ? 'Dark' : 'Light' }}</span>
+      </button>
   
       <!-- <div v-if="data" class="mt-5 text-black sm:max-w-xl">
         {{ data }}
