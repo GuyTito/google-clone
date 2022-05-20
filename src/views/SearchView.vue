@@ -3,11 +3,9 @@ import { ref } from 'vue';
 import Searchbar from '../components/Searchbar.vue';
 import { useRoute } from 'vue-router'
 import data from '@/composables/data.js'
-import { computed } from '@vue/reactivity';
-
+import ThemeBtn from '../components/ThemeBtn.vue'
 
 const route = useRoute()
-
 
 const search_term = ref('')
 search_term.value = route.query.q || ''
@@ -34,46 +32,43 @@ async function search() {
   }
 }
 
-const menu = ref(['search', 'Images', 'Videos', 'News'])
+const menu = ['search', 'Images', 'Videos', 'News']
 
 </script>
 
 
 <template>
-  <div class="flex justify-center mt-5">
-    <Searchbar :search_term="search_term" @search="search"/>
-  </div>
+  <div class="mx-2 space-x-3 flex justify-between items-center sm:justify-center mt-5 sm:relative">
+    <div class="w-full sm:w-1/2">
+      <Searchbar :search_term="search_term" @search="search"/>
+    </div>
 
-  <div class=" mx-5 sm:mx-14 md:max-w-3xl md:mx-auto">
-    <!-- <div v-if="data" class="mt-5 text-black sm:max-w-xl">
-      {{ data }}
-    </div> -->
-    <div  class="mt-5 text-black w-full" >
-      <div>
-        <nav class="space-x-5 sm:space-x-10 flex sm:block justify-between mb-5 sm:mb-8 border-b-2 text-gray-400">
-          <router-link 
-            v-for="item in menu" :key="item" 
-            :to="`/${item.toLowerCase()}?q=${search_term}`" 
-            class="border-b-4 border-transparent py-2 px-4 inline-block "
-          >
-            {{ item == 'search' ? 'All' : item }}
-          </router-link>
-        </nav>
-
-        <div v-if="data" class="space-y-8">
-          <div v-for="item in data.results" :key="item.id" class="">
-            <a :href="item.link" target="_blank" rel="noopener" class="flex flex-col group">
-              <span>{{item.cite.domain}}</span>
-              <span class="font-semibold text-xl text-green-600 group-hover:underline">{{item.title}}</span>
-            </a>
-            <p> {{item.description}} </p>
-          </div>
-        </div>
-      </div>
-      
+    <div class="sm:absolute sm:right-40 sm:top-1/2 sm:-translate-y-1/2">
+      <ThemeBtn />
     </div>
   </div>
-  
+
+  <div class="mt-5 mx-5 sm:mx-14 md:max-w-3xl md:mx-auto">
+    <nav class="space-x-5 sm:space-x-10 flex sm:block justify-between mb-5 sm:mb-8 border-b-2 dark:border-gray-700 text-gray-400">
+      <router-link 
+        v-for="item in menu" :key="item" 
+        :to="`/${item.toLowerCase()}?q=${search_term}`" 
+        class="border-b-4 border-transparent py-2 px-4 inline-block "
+      >
+        {{ item == 'search' ? 'All' : item }}
+      </router-link>
+    </nav>
+
+    <div v-if="data" class="space-y-8">
+      <div v-for="item in data.results" :key="item.id" class="">
+        <a :href="item.link" target="_blank" rel="noopener" class="flex flex-col group">
+          <span>{{item.cite.domain}}</span>
+          <span class="font-semibold text-xl text-green-600 group-hover:underline">{{item.title}}</span>
+        </a>
+        <p> {{item.description}} </p>
+      </div>
+    </div>
+  </div>
 </template>
 
 
