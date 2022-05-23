@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue';
 import Searchbar from '../components/Searchbar.vue';
-import { useRoute } from 'vue-router'
-// import data from '@/composables/data.js'
+import { useRoute, useRouter } from 'vue-router'
 import ThemeBtn from '../components/ThemeBtn.vue'
 
 const route = useRoute()
+const router = useRouter()
 
 const search_term = ref('')
 search_term.value = route.query.q || ''
@@ -14,6 +14,7 @@ const data = ref(null)
 async function search(search_text) {
   if (search_text) search_term.value = search_text
   if (search_term.value) {
+    router.replace({ path: '/search', query: { q: search_term.value } })
     const options = {
       method: 'GET',
       headers: {
@@ -32,6 +33,7 @@ async function search(search_text) {
     }
   }
 }
+search()
 
 const menu = ['search', 'Images', 'Videos', 'News']
 
@@ -66,7 +68,7 @@ const menu = ['search', 'Images', 'Videos', 'News']
           <span class="text-sm text-gray-400">{{item.cite.domain}}</span>
           <span class="font-semibold text-xl text-green-600 group-hover:underline">{{item.title}}</span>
         </a>
-        <p> {{item.description.substr(0, 250)}} </p>
+        <p> {{item.description.substr(0, 200)}} </p>
       </div>
     </div>
   </div>
