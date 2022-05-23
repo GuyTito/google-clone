@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import Searchbar from '../components/Searchbar.vue';
 import { useRoute } from 'vue-router'
-import data from '@/composables/data.js'
+// import data from '@/composables/data.js'
 import ThemeBtn from '../components/ThemeBtn.vue'
 
 const route = useRoute()
@@ -10,21 +10,22 @@ const route = useRoute()
 const search_term = ref('')
 search_term.value = route.query.q || ''
 
-// const data = ref(null)
-async function search() {
+const data = ref(null)
+async function search(search_text) {
+  if (search_text) search_term.value = search_text
   if (search_term.value) {
     const options = {
       method: 'GET',
       headers: {
         'X-User-Agent': 'desktop',
-        'X-Proxy-Location': 'EU',
+        'X-Proxy-Location': 'US',
         'X-RapidAPI-Host': 'google-search3.p.rapidapi.com',
         'X-RapidAPI-Key': import.meta.env.VITE_API_KEY
       }
     }
 
     try {
-      const res = await fetch(`https://google-search3.p.rapidapi.com/api/v1/search/q=${search_term.value}`, options)
+      const res = await fetch(`https://google-search3.p.rapidapi.com/api/v1/search/q=${search_term.value}&num=40`, options)
       data.value = await res.json()
     } catch (error) {
       console.error(error.msg)
@@ -43,7 +44,7 @@ const menu = ['search', 'Images', 'Videos', 'News']
       <Searchbar :search_term="search_term" @search="search"/>
     </div>
 
-    <div class="sm:absolute sm:right-40 sm:top-1/2 sm:-translate-y-1/2">
+    <div class="sm:absolute sm:right-[10%] sm:top-1/2 sm:-translate-y-1/2">
       <ThemeBtn />
     </div>
   </div>
@@ -62,10 +63,10 @@ const menu = ['search', 'Images', 'Videos', 'News']
     <div v-if="data" class="space-y-8">
       <div v-for="item in data.results" :key="item.id" class="">
         <a :href="item.link" target="_blank" rel="noopener" class="flex flex-col group">
-          <span>{{item.cite.domain}}</span>
+          <span class="text-sm text-gray-400">{{item.cite.domain}}</span>
           <span class="font-semibold text-xl text-green-600 group-hover:underline">{{item.title}}</span>
         </a>
-        <p> {{item.description}} </p>
+        <p> {{item.description.substr(0, 250)}} </p>
       </div>
     </div>
   </div>
