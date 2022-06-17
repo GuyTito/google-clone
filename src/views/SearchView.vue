@@ -3,6 +3,8 @@ import { ref } from 'vue';
 import Searchbar from '../components/Searchbar.vue';
 import { useRoute, useRouter } from 'vue-router'
 import ThemeBtn from '../components/ThemeBtn.vue'
+import Loading from '../components/Loading.vue'
+
 
 const route = useRoute()
 const router = useRouter()
@@ -11,7 +13,9 @@ const search_term = ref('')
 search_term.value = route.query.q || ''
 
 const data = ref(null)
+const is_loading = ref(false)
 async function search(search_text) {
+  is_loading.value = true
   if (search_text) search_term.value = search_text
   if (search_term.value) {
     router.replace({ path: '/search', query: { q: search_term.value } })
@@ -28,6 +32,7 @@ async function search(search_text) {
     try {
       const res = await fetch(`https://google-search3.p.rapidapi.com/api/v1/search/q=${search_term.value}&num=40`, options)
       data.value = await res.json()
+      is_loading.value = false
     } catch (error) {
       console.error(error.msg)
     }
@@ -62,7 +67,10 @@ const menu = ['search', 'Images', 'Videos', 'News']
       </router-link>
     </nav>
 
-    <div v-if="data" class="space-y-8">
+    <div v-if="is_loading" class="absolute top-1/2 right-1/2 -translate-x-1/2 ">
+      <Loading />
+    </div>
+    <div v-else class="space-y-8">
       <div v-for="item in data.results" :key="item.id" class="">
         <a :href="item.link" target="_blank" rel="noopener" class="flex flex-col group">
           <span class="text-sm text-gray-400">{{item.cite.domain}}</span>
@@ -71,6 +79,7 @@ const menu = ['search', 'Images', 'Videos', 'News']
         <p> {{item.description.substr(0, 200)}} </p>
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -79,4 +88,8 @@ const menu = ['search', 'Images', 'Videos', 'News']
 .router-link-exact-active{
   @apply font-medium text-green-600 border-green-600
 }
+</style>
+
+<style scoped>
+
 </style>
