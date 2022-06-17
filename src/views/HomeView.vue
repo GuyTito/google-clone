@@ -16,8 +16,8 @@ function search(search_term) {
 <template>
   <div >
     <div class="mt-5 sm:mt-10 absolute right-5 sm:right-16">
-        <ThemeBtn />
-      </div>
+      <ThemeBtn />
+     </div>
 
     <div class="absolute top-1/2 -translate-y-1/2 w-full">
       <div class="mx-5 space-x-3 flex justify-between items-center sm:justify-center mt-5 sm:relative">
