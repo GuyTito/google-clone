@@ -5,7 +5,7 @@
 
 
 <template>
-  <div class="follow-the-leader">
+  <div class="dominoes">
     <div></div>
     <div></div>
     <div></div>
