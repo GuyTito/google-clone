@@ -71,11 +71,11 @@ const menu = ['search', 'Images', 'Videos', 'News']
       </router-link>
     </nav>
 
-    <div v-if="is_loading" class="absolute top-1/2 right-1/2 -translate-x-1/2 ">
+    <div v-if="is_loading" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 ">
       <Loading />
     </div>
     <div v-else class="space-y-8">
-      <div v-for="item in data.results" :key="item.id" class="">
+      <div v-for="item in data.results" :key="item.id" class="overflow-hidden">
         <a :href="item.link" target="_blank" rel="noopener" class="flex flex-col group">
           <span class="text-sm text-gray-400">{{item.cite.domain}}</span>
           <span class="font-semibold text-xl text-green-600 group-hover:underline">{{item.title}}</span>
