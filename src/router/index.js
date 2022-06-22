@@ -16,7 +16,12 @@ const router = createRouter({
       // this generates a separate chunk (Search.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/SearchView.vue')
-    }
+    },
+    {
+      path: '/images',
+      name: 'images',
+      component: () => import('../views/ImagesView.vue')
+    },
   ]
 })
 
