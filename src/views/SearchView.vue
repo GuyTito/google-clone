@@ -75,12 +75,12 @@ const menu = ['search', 'Images', 'Videos', 'News']
       <Loading />
     </div>
     <div v-else class="space-y-8">
-      <div v-for="item in data.results" :key="item.id" class="overflow-hidden">
+      <div v-for="item in data.results" :key="item.id" class="">
         <a :href="item.link" target="_blank" rel="noopener" class="flex flex-col group">
           <span class="text-sm text-gray-400">{{item.cite.domain}}</span>
           <span class="font-semibold text-xl text-green-600 group-hover:underline">{{item.title}}</span>
         </a>
-        <p> {{item.description.substr(0, 200)}} </p>
+        <p class="break-words"> {{item.description.substr(0, 200)}} </p>
       </div>
     </div>
     
