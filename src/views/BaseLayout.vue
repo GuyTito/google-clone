@@ -1,11 +1,12 @@
 <script setup>
 import ThemeBtn from '../components/ThemeBtn.vue'
 import Searchbar from '../components/Searchbar.vue';
+import Loading from '../components/Loading.vue';
 
 
 const menu = ['search', 'Images', 'Videos', 'News']
 
-const props = defineProps(['search_term', ])
+const props = defineProps(['search_term', 'load', ])
 
 const emit = defineEmits(['search', ])
 function search(search_text) {
@@ -41,8 +42,12 @@ function search(search_text) {
       </router-link>
     </nav>
 
-    <slot></slot>
-    
+    <div v-if="load" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 ">
+      <Loading />
+    </div>
+    <div v-else>
+      <slot></slot>
+    </div>
   </div>
 </template>
 

@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import BaseLayout from './BaseLayout.vue';
 import { useRoute, useRouter } from 'vue-router'
 import useSearch from '../composables/useSearch';
-import Loading from '../components/Loading.vue';
 
 
 const router = useRouter()
@@ -30,12 +29,9 @@ search()
 
 
 <template>
-  <BaseLayout :search_term="search_term" @search="search">
+  <BaseLayout :search_term="search_term" @search="search" :load="load">
     <template #default>
-      <div v-if="load" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 ">
-        <Loading />
-      </div>
-      <div v-else class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <div  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         <div v-for="image in results.image_results" :key="image.id" class="">
           <a :href="image.link.href" class="">
             <img :src="image.image.src" :alt="image.image.alt" class=" rounded-lg">
