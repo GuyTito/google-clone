@@ -1,10 +1,16 @@
 <script setup>
 import ThemeBtn from '../components/ThemeBtn.vue'
+import Searchbar from '../components/Searchbar.vue';
 
 
 const menu = ['search', 'Images', 'Videos', 'News']
 
 const props = defineProps(['search_term', ])
+
+const emit = defineEmits(['search', ])
+function search(search_text) {
+  emit('search', search_text)
+}
 
 </script>
 
@@ -14,7 +20,10 @@ const props = defineProps(['search_term', ])
     <div class="sm:absolute sm:left-[10%] sm:top-1/2 sm:-translate-y-1/2">
       <router-link to="/" class="font-bold text-xl text-green-600">goGGL</router-link>
     </div>
-    <slot name="search_bar"></slot>
+    
+    <div class="w-full sm:w-1/2">
+      <Searchbar :search_term="search_term" @search="search"/>
+    </div>
 
     <div class="sm:absolute sm:right-[10%] sm:top-1/2 sm:-translate-y-1/2">
       <ThemeBtn />
