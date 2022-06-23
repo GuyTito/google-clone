@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import BaseLayout from './BaseLayout.vue';
 import { useRoute, useRouter } from 'vue-router'
 import useSearch from '../composables/useSearch';
-import Searchbar from '../components/Searchbar.vue';
 import Loading from '../components/Loading.vue';
 
 
@@ -31,13 +30,7 @@ search()
 
 
 <template>
-  <BaseLayout :search_term="search_term">
-    <template #search_bar>
-      <div class="w-full sm:w-1/2">
-        <Searchbar :search_term="search_term" @search="search"/>
-      </div>
-    </template>
-
+  <BaseLayout :search_term="search_term" @search="search">
     <template #default>
       <div v-if="load" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 ">
         <Loading />
