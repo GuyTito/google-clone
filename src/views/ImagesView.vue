@@ -30,18 +30,16 @@ search()
 
 <template>
   <BaseLayout :search_term="search_term" @search="search" :load="load">
-    <template #default>
-      <div  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        <div v-for="image in results.image_results" :key="image.id" class="">
-          <a :href="image.link.href" class="">
-            <img :src="image.image.src" :alt="image.image.alt" class=" rounded-lg">
-            <span class="text-xs mt-1">
-              {{image.link.title}}
-            </span>
-          </a>
-        </div>
+    <div  class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <div v-for="image in results.image_results" :key="image.id" class="">
+        <a :href="image.link.href" class="">
+          <img :src="image.image.src" :alt="image.image.alt" class=" rounded-lg">
+          <span class="text-xs mt-1">
+            {{image.link.title}}
+          </span>
+        </a>
       </div>
-    </template>
+    </div>
   </BaseLayout>
   
 </template>

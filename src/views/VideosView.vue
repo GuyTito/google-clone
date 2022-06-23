@@ -30,15 +30,13 @@ search()
 
 <template>
   <BaseLayout :search_term="search_term" @search="search" :load="load">
-    <template #default>
-      <div v-for="video in results.results" :key="video.id" class="">
-        <a :href="video.link" target="_blank" rel="noopener" class="flex flex-col group">
-          <span class="text-sm text-gray-400">{{video.cite.domain}}</span>
-          <span class="font-semibold text-xl text-green-600 group-hover:underline">{{video.title}}</span>
-        </a>
-        <p class="break-words"> {{video.description.substr(0, 200)}} </p>
-      </div>
-    </template>
+    <div v-for="video in results.results" :key="video.id" class="">
+      <a :href="video.link" target="_blank" rel="noopener" class="flex flex-col group">
+        <span class="text-sm text-gray-400">{{video.cite.domain}}</span>
+        <span class="font-semibold text-xl text-green-600 group-hover:underline">{{video.title}}</span>
+      </a>
+      <p class="break-words"> {{video.description.substr(0, 200)}} </p>
+    </div>
   </BaseLayout>
   
 </template>
