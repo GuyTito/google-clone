@@ -4,7 +4,7 @@ import { ref } from 'vue';
 async function useSearch(page, search_text){
   const data = ref(null)
   const is_loading = ref(true)
-  if (search_text) {
+  if (search_text || page) {
     const options = {
       method: 'GET',
       headers: {
