@@ -33,7 +33,7 @@ search()
     <div class="space-y-8">
       <div v-for="item in results.results" :key="item.id" class="">
         <a :href="item.link" target="_blank" rel="noopener" class="flex flex-col group">
-          <span class="text-sm text-gray-400">{{item.cite.domain}}</span>
+          <span class="text-sm text-gray-400">{{item.cite?.domain}}</span>
           <span class="font-semibold text-xl text-green-600 group-hover:underline">{{item.title}}</span>
         </a>
         <p class="break-words"> {{item.description.substr(0, 200)}} </p>
