@@ -4,7 +4,7 @@ import Searchbar from '../components/Searchbar.vue';
 import Loading from '../components/Loading.vue';
 
 
-const menu = ['search', 'Images', 'Videos', 'News']
+const menu = ['search', 'Images', 'Videos']
 
 const props = defineProps(['search_term', 'load', ])
 
