@@ -33,7 +33,7 @@ search()
     <div class="space-y-8">
       <div v-for="video in results.results" :key="video.id" class="">
         <a :href="video.link" target="_blank" rel="noopener" class="flex flex-col group">
-          <span class="text-sm text-gray-400">{{video.cite.domain}}</span>
+          <span class="text-sm text-gray-400 hidden md:block">{{video.cite.domain}}</span>
           <span class="font-semibold text-xl text-green-600 group-hover:underline">{{video.title}}</span>
         </a>
         <div class="flex space-x-5 mt-2">
@@ -42,7 +42,8 @@ search()
               <img src="../assets/video_player-min.PNG" alt="" class="rounded-lg object-cover w-full h-full">
             </a>
           </div>
-          <p class="break-words"> {{video.description.substr(0, 200)}} </p>
+          <p class="break-words hidden md:block"> {{video.description.substr(0, 200)}} </p>
+          <span class="text-sm text-gray-400 block md:hidden">{{video.cite.domain}}</span>
         </div>
       </div>
     </div>
