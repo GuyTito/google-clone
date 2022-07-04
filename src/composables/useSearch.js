@@ -4,7 +4,10 @@ import { ref } from 'vue';
 async function useSearch(page, search_text){
   const data = ref(null)
   const is_loading = ref(true)
+  const menu = ['search', 'image', 'video']
   if (search_text || page) {
+    if (!menu.includes(page)) return 
+
     const options = {
       method: 'GET',
       headers: {
