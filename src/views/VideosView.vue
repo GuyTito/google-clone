@@ -14,13 +14,15 @@ router.push({ path: '/videos', query: { q: search_term.value } })
 
 const load = ref(true)
 const results = ref(null)
+const error_object = ref('')
 async function search(search_text) {
   if (search_text) search_term.value = search_text
   router.push({ path: '/videos', query: { q: search_term.value } })
   load.value = true
-  const { is_loading, data } = await useSearch('video', search_term.value)
+  const { is_loading, data, error_obj } = await useSearch('video', search_term.value)
   load.value = is_loading.value
   results.value = data.value
+  error_object.value = error_obj
 }
 
 search()
@@ -29,7 +31,7 @@ search()
 
 
 <template>
-  <BaseLayout :search_term="search_term" @search="search" :load="load">
+  <BaseLayout :search_term="search_term" @search="search" :load="load" :error_object="error_object">
     <div class="space-y-8">
       <div v-for="video in results.results" :key="video.id" class="">
         <a :href="video.link" target="_blank" rel="noopener" class="flex flex-col group">
