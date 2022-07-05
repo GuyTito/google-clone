@@ -2,11 +2,13 @@
 import ThemeBtn from '../components/ThemeBtn.vue'
 import Searchbar from '../components/Searchbar.vue';
 import Loading from '../components/Loading.vue';
+import { ExclamationCircleIcon } from '@heroicons/vue/solid'
+
 
 
 const menu = ['search', 'Images', 'Videos']
 
-const props = defineProps(['search_term', 'load', ])
+const props = defineProps(['search_term', 'load', 'error_object' ])
 
 const emit = defineEmits(['search', ])
 function search(search_text) {
@@ -46,6 +48,9 @@ function search(search_text) {
     
         <div v-if="load" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 ">
           <Loading />
+        </div>
+        <div v-else-if="error_object.status" class="text-red-500 py-2 px-3 bg-red-100 flex items-center rounded-lg">
+          <div class="h-8 w-8 mr-3"><ExclamationCircleIcon /></div> {{error_object.status + ' - ' + error_object.statusText }}
         </div>
         <div v-else>
           <slot></slot>
