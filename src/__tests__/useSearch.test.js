@@ -3,7 +3,7 @@ import useSearch from "../composables/useSearch";
 
 const test_response_data = { key: 'test value'}
 
-const fetchMock = vi.fn((url, options) => {
+const fetchMock = vi.fn(() => {
   return new Promise((resolve, reject) => {
     const test_response = {
       ok: true,
@@ -21,7 +21,7 @@ const fetchMock = vi.fn((url, options) => {
 vi.stubGlobal('fetch', fetchMock)
 
 beforeEach(() => {
-  fetch.mockClear();
+  fetchMock.mockClear();
 });
 
 it('returns promise which resolves to nothing if search_text/page arg are not provided', () => {
@@ -31,12 +31,12 @@ it('returns promise which resolves to nothing if search_text/page arg are not pr
 
 it('should not call fetch if page is not in menu', () => {
   const res = useSearch('test','test')
-  expect(fetch).not.toBeCalled()
+  expect(fetchMock).not.toBeCalled()
 })
 
 it('should make sure fetch is called', () => {
   const res = useSearch('image','test')
-  expect(fetch).toBeCalled()
+  expect(fetchMock).toBeCalled()
 })
 
 it('should make sure data is converted to json', async () => {
@@ -48,3 +48,4 @@ it('should make sure data is converted to json', async () => {
   }
   expect(error_msg).not.toBe('Not a string!')
 })
+
