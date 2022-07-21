@@ -58,7 +58,7 @@ function search(search_text) {
       </div>
     </div>
   
-    <footer class="mt-5 pt-5 pb-5 text-center text-[10px] text-gray-600/80 bg-gray-200 flex-shrink-0">
+    <footer class="mt-5 pt-5 pb-5 text-center text-[10px]  text-gray-600/80 dark:text-gray-500 bg-gray-200 dark:bg-gray-900 flex-shrink-0">
       Inspired by <a href="https://youtu.be/GDa8kZLNhJ4?t=28148" target="_blank" class="underline hover:font-bold">JavaScript Mastery</a>. 
          <a href="https://github.com/GuyTito/google-clone"  target="_blank" class="underline hover:font-bold">Source Code</a>.
     </footer>
