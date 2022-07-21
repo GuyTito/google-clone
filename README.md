@@ -1,6 +1,6 @@
 # google-clone
 
-This template should help get you started developing with Vue 3 in Vite.
+A simple clone of the Google Search frontend using a [Google Search API](https://rapidapi.com/apigeek/api/google-search3/) from RapidApi
 
 ## Recommended IDE Setup
 
