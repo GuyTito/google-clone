@@ -41,7 +41,7 @@ search()
         <div class="flex space-x-5 mt-2">
           <div class="grid">
             <a :href="video.link" target="_blank" rel="noopener" class="h-28 w-44">
-              <img src="../assets/video_player-min.PNG" alt="" class="rounded-lg object-cover w-full h-full">
+              <img src="/assets/video_player-min.jpg" alt="video" class="rounded-lg object-cover w-full h-full">
             </a>
           </div>
           <p class="break-words hidden md:block"> {{video.description.substr(0, 200)}} </p>
