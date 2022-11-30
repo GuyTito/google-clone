@@ -1,6 +1,6 @@
 # google-clone
 
-A simple clone of the Google search page you can use to search for info, images and videos made available by a [Google Search API](https://rapidapi.com/apigeek/api/google-search3/) from RapidApi.
+A simple clone of the Google search page you can use to search for info, images and videos made available by a [Google Search API](https://rapidapi.com/tuangeek/api/seo-api) from RapidApi.
 
 
 ## Link
