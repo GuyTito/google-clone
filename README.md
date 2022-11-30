@@ -28,7 +28,7 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 
 ### API KEY
-Get your api key from [RapidApi](https://rapidapi.com/apigeek/api/google-search3/). <br>
+Get your api key from [RapidApi](https://rapidapi.com/tuangeek/api/seo-api). <br>
 Create a .env file at the root and fill it with your api key following the format in the .env-example file.
 
 
