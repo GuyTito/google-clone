@@ -3,6 +3,16 @@
 A simple clone of the Google search page you can use to search for info, images and videos made available by a [Google Search API](https://rapidapi.com/tuangeek/api/seo-api) from RapidApi.
 
 
+### Screenshot
+
+<details>
+<summary>Screenshot</summary>
+
+![Screenshot of project](./goGGL.PNG)
+
+</details>
+
+
 ## Link
 
 - [Live Site](https://search-goggl.netlify.app/)
