@@ -1,6 +1,12 @@
 # google-clone
 
-A simple clone of the Google Search frontend using a [Google Search API](https://rapidapi.com/apigeek/api/google-search3/) from RapidApi
+A simple clone of the Google search page you can use to search for info, images and videos made available by a [Google Search API](https://rapidapi.com/apigeek/api/google-search3/) from RapidApi.
+
+
+## Link
+
+- [Live Site](https://search-goggl.netlify.app/)
+
 
 ## Recommended IDE Setup
 
@@ -21,8 +27,6 @@ Create a .env file at the root and fill it with your api key following the forma
 ```sh
 npm install
 ```
-
-
 
 ### Compile and Hot-Reload for Development
 
